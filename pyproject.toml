@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nvm-toys-ai-marketing"
+version = "1.0.0"
+description = "Single-file, local-first marketing workspace for NVM Toys"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.30,<1",
+  "httpx>=0.27,<1",
+  "python-dotenv>=1,<2",
+  "google-genai>=1,<2",
+  "pydantic>=2.8,<3",
+  "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "ruff>=0.6,<1", "httpx>=0.27,<1"]
+
+[tool.setuptools]
+py-modules = ["app"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = ["B008"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
